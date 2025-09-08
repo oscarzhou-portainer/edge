@@ -8,3 +8,4 @@ checkversion
 issue1
 update
 testnewfix1
+testwithprimage
