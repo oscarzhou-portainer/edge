@@ -4,3 +4,4 @@ partisssimissimo
 addextraconfiguration
 update again
 newaddition
+checkversion
