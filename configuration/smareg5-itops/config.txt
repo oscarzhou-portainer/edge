@@ -7,3 +7,4 @@ newaddition
 checkversion
 issue1
 update
+testnewfix
