@@ -1,11 +1,3 @@
 ciao configurazione
 edited part 2
 partisssimissimo
-addextraconfiguration
-update again
-newaddition
-checkversion
-issue1
-update
-testnewfix1
-testwithprimage
