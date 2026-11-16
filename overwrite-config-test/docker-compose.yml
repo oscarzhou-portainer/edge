@@ -14,6 +14,8 @@ services:
       - "8082:80"
     volumes:
       - ./config/${PORTAINER_EDGE_GROUP}/api:/usr/share/nginx/html:ro
+    environment:
+      - TC6=1
 
   # Mounts a single file instead of a folder.
   single:
@@ -22,6 +24,8 @@ services:
       - "8083:80"
     volumes:
       - ./config/${PORTAINER_EDGE_GROUP}/single/index.html:/usr/share/nginx/html/index.html:ro
+    environment:
+      - TC6=1      
 
   # Writes a file into the stack folder to show whether container data survives a refresh.
   writer:
