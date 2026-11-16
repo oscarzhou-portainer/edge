@@ -1,0 +1,31 @@
+services:
+  # Its folder changes in each test commit, so it should be recreated every time.
+  web:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - ./config/${PORTAINER_EDGE_GROUP}/web:/usr/share/nginx/html:ro
+
+  # Its folder never changes, so it is never recreated. This is the service that shows the bug.
+  api:
+    image: nginx:alpine
+    ports:
+      - "8082:80"
+    volumes:
+      - ./config/${PORTAINER_EDGE_GROUP}/api:/usr/share/nginx/html:ro
+
+  # Mounts a single file instead of a folder.
+  single:
+    image: nginx:alpine
+    ports:
+      - "8083:80"
+    volumes:
+      - ./config/${PORTAINER_EDGE_GROUP}/single/index.html:/usr/share/nginx/html/index.html:ro
+
+  # Writes a file into the stack folder to show whether container data survives a refresh.
+  writer:
+    image: busybox:1.36
+    command: ["sh", "-c", "echo \"started $$(date)\" >> /data/written.txt && sleep 86400"]
+    volumes:
+      - ./config/${PORTAINER_EDGE_GROUP}/data:/data
